@@ -1,0 +1,38 @@
+
+.cont{
+    height:50vw;
+}
+
+.forma{
+    width:50% !important;
+}
+
+
+.card-img-overlay{
+    height:auto;
+    transition: .5s ease;
+    opacity: 0;
+}
+
+.card-img-top{
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.card:hover .card-img-top {
+    opacity: 0.3;
+    cursor: pointer;
+  }
+  
+  .card:hover .card-img-overlay {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .progress{
+      height: 3.5%;
+  }
