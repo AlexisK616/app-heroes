@@ -1,0 +1,113 @@
+<div class="container-fluid bg-dark">
+  <div class="container mt-3 mb-5">
+    <div class="row border border-light">
+        <h3 class="text-center text-white display-3">Your Team</h3>
+      <div class="card bg-dark col-md-3 mt-3 mb-3" *ngFor="let champ of teamList">
+        <img
+          [src]="champ.image.url"
+          (error)="changeSource($event)"
+          class="card-img-top img-fluid p-3"
+        />
+        <div class="container-fluid card-img-overlay px-5">
+          <h5 class="card-title text-center text-white">
+            PowerStats
+          </h5>
+          <div class="progress mb-md-3 mb-4">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [style.width.%]="champ.powerstats.combat | defaulNumberNull"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              Combat: {{ champ.powerstats.combat }}%
+            </div>
+          </div>
+          <div class="progress mb-md-3 mb-4">
+            <div
+              class="progress-bar bg-success"
+              role="progressbar"
+              [style.width.%]="champ.powerstats.durability | defaulNumberNull"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              Durability: {{ champ.powerstats.durability }}%
+            </div>
+          </div>
+          <div class="progress mb-md-3 mb-4">
+            <div
+              class="progress-bar bg-info"
+              role="progressbar"
+              [style.width.%]="champ.powerstats.intelligence | defaulNumberNull"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              Intelligence: {{ champ.powerstats.intelligence }}%
+            </div>
+          </div>
+          <div class="progress mb-md-3 mb-4">
+            <div
+              class="progress-bar bg-warning"
+              role="progressbar"
+              [style.width.%]="champ.powerstats.power | defaulNumberNull"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              Power: {{ champ.powerstats.power }}%
+            </div>
+          </div>
+          <div class="progress mb-md-3 mb-4">
+            <div
+              class="progress-bar bg-danger"
+              role="progressbar"
+              [style.width.%]="champ.powerstats.speed | defaulNumberNull"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              Speed: {{ champ.powerstats.speed }}%
+            </div>
+          </div>
+          <div class="progress mb-md-3 mb-4">
+            <div
+              class="progress-bar bg-secondary"
+              role="progressbar"
+              [style.width.%]="champ.powerstats.strength | defaulNumberNull"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              Strength: {{ champ.powerstats.strength }}%
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-danger" (click)="deleteHeroe(champ)">Delete</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title text-white text-center">{{ champ.name }}</h3>
+          <h3
+            class="card-title text-center"
+            [ngClass]="{
+              'text-success': champ.biography.alignment === 'good',
+              'text-danger': champ.biography.alignment === 'bad'
+            }"
+          >
+            {{ champ.biography.alignment }}
+          </h3>
+        </div>
+      </div>
+      <div class="col-md-6">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-dark">
+    <app-searcher></app-searcher>
+  </div>
+</div>
